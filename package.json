@@ -1,0 +1,24 @@
+{
+  "name": "burn_up_the_week",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbpanderson/burn_up_the_week.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbpanderson/burn_up_the_week/issues"
+  },
+  "homepage": "https://github.com/cbpanderson/burn_up_the_week#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-es6-template-engine": "^2.2.3",
+    "pg-promise": "^10.10.2"
+  },
+  "description": ""
+}
