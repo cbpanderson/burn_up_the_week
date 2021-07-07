@@ -12,7 +12,11 @@ app.set('view engine', 'html');
 app.use(express.urlencoded({extended:true}));
 app.use('/public', express.static('public'));
 
-app.get('/', async (request, response, next) => {
+app.get('/', (request, response) => {
+  response.render("login");
+});
+
+app.get('/index.html', async (request, response, next) => {
     try{
         var dbQuery = await db.query("SELECT * FROM restaurant");
         response.send({message:'hello', result: dbQuery});
