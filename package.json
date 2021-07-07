@@ -20,5 +20,6 @@
     "express-es6-template-engine": "^2.2.3",
     "pg-promise": "^10.10.2"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {}
 }
