@@ -1,1 +1,1 @@
-[embed]file:///C:/Users/cassa/Downloads/Burn_Up_The_Week%20(1).pdf[/embed]
+[Burn_Up_The_Week (1).pdf](https://github.com/cbpanderson/burn_up_the_week/files/6780845/Burn_Up_The_Week.1.pdf)
