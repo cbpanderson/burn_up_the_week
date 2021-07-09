@@ -20,12 +20,12 @@ require('dotenv').config();
 
 app.get('/index.html', async (request, response, next) => {
     try{
-        var dbQuery = await db.query("SELECT * FROM restaurant");
+        var dbQuery = await db.query("SELECT * FROM workouts");
         response.send({message:'hello', result: dbQuery});
         response.render("week-view"); //whatever the main html file is called
     } catch(error) {
         console.log(error+"catch statement");
-        next(error)
+        next(error) 
         response.send({
           error,
           msg: "There was an error with the database."
