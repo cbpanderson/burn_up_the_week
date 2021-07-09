@@ -1,3 +1,2 @@
-![Burn_Up_The_Week (1)](https://user-images.githubusercontent.com/1825104/125004611-e5e0e680-e027-11eb-963a-b3a572960809.jpg)
-
+![Burn_Up_The_Week (2)](https://user-images.githubusercontent.com/1825104/125004706-1c1e6600-e028-11eb-8962-529bb8f8a68e.jpg)
 
