@@ -10,7 +10,7 @@
 <body>
     <h1 id="pageTitle">Burn Up The Week</h1>
 
-    <form id="weekSearchForm">
+    <form id="weekSearchForm" style.display="none">
         <input type="text" id="weekSearch" name="weekSearch"><br>
         <input type="submit" value="Week Search">
     </form>
@@ -20,17 +20,39 @@
         <!-- Need to add exercises here dynamically based on how many in db, like we did with drinks -->
     </div>
     <div id="mon-thur-row">
-        <div class="mon-thur-box"><input id ="workoutCheckMonday" type="checkbox" name="terms" /></div>
-        <div class="mon-thur-box"><input id ="workoutCheckTuesday" type="checkbox" name="terms" /></div>
-        <div class="mon-thur-box"><input id ="workoutCheckWednesday" type="checkbox" name="terms" /></div>
-        <div class="mon-thur-box"><input id ="workoutCheckThursday" type="checkbox" name="terms" /></div>
+        <div class="mon-thur-box" id="mondayBox">
+            <input id="workoutCheckMonday" type="checkbox"/>
+            <h3 class="boxLabel">Monday</h3>
+        </div>
+        <div class="mon-thur-box" id="TuesdayBox">
+            <input id="workoutCheckTuesday" type="checkbox"/>
+            <h3 class="boxLabel">Tuesday</h3>
+        </div>
+        <div class="mon-thur-box" id="WednesdayBox">
+            <input id ="workoutCheckWednesday" type="checkbox"/>
+            <h3 class="boxLabel">Wednesday</h3>
+        </div>
+        <div class="mon-thur-box" id="ThursdayBox">
+            <input id ="workoutCheckThursday" type="checkbox"/>
+            <h3 class="boxLabel">Thursday</h3>
+        </div>
     </div>
     <div id="fri-sun-row">
-        <div class="fri-sun-box"><input id ="workoutCheckFriday" type="checkbox" name="terms" /></div>
-        <div class="fri-sun-box"><input id ="workoutCheckSaturday" type="checkbox" name="terms" /></div>
-        <div class="fri-sun-box"><input id ="workoutCheckSunday" type="checkbox" name="terms" /></div>
+        <div class="fri-sun-box" id="FridayBox">
+            <input id ="workoutCheckFriday" type="checkbox"/>
+            <h3 class="boxLabel">Friday</h3>
+        </div>
+        <div class="fri-sun-box" id="SaturdayBox">
+            <input id ="workoutCheckSaturday" type="checkbox"/>
+            <h3 class="boxLabel">Saturday</h3>
+        </div>
+        <div class="fri-sun-box" id="SundayBox">
+            <input id ="workoutCheckSunday" type="checkbox"/>
+            <h3 class="boxLabel">Sunday</h3>
+        </div>
     </div>
     <div id="weekTotal">Week Total:</div>
+    <!-- whenever check box is clicked or unclicked need to calculate total -->
     
 </body>
 </html>

@@ -1,5 +1,6 @@
 #weekSearchForm{
     margin-left: 50%; 
+    display: none;
 }
 #mon-thur-row{
     width:800px;
@@ -31,6 +32,10 @@
     border-style: solid;
     border-color: black;
 }
+.boxLabel{
+    padding-left: 20%;
+    margin-top: 0px;
+}
 #pageTitle{
     margin-left: 7%;
     margin-top: 2%;
@@ -45,10 +50,13 @@
     float: left;
 }
 #weekTotal{
-    margin-right: 43%;
+    margin-right: 30%;
     float: right;
     margin-top: -5%;
 }
 #exerciseTitle{
     padding-left: 10%;
+}
+h3{
+    background-color: dodgerblue;
 }
