@@ -40,16 +40,12 @@ app.get('/', (req, res) => {
   }
 });
 
-app.get('/profile',requiresAuth(), (req, res)=>{
-  res.send(JSON.stringify(req.oidc.user));
-});
-
 app.get('/index', (request, response) => {
   response.render("index");
   // try{
-  //     var dbQuery = await db.query("SELECT * FROM restaurant");
+  //     var dbQuery = await db.query("SELECT names FROM workouts");
   //     response.send({message:'hello', result: dbQuery});
-  //     response.render("week-view"); //whatever the main html file is called
+  //     response.render("index"); //whatever the main html file is called
   // } catch(error) {
   //     console.log(error+"catch statement");
   //     next(error)
@@ -58,4 +54,8 @@ app.get('/index', (request, response) => {
   //       msg: "There was an error with the database."
   //     })
   // }   
+});
+
+app.get('/profile',requiresAuth(), (req, res)=>{
+  res.send(JSON.stringify(req.oidc.user));
 });
