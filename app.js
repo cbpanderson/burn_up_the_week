@@ -12,26 +12,7 @@ app.set('view engine', 'html');
 app.use(express.urlencoded({extended:true}));
 app.use('/public', express.static('public'));
 
-app.get('/', (request, response) => {
-  response.render("login");
-});
-
 require('dotenv').config();
-
-app.get('/index.html', async (request, response, next) => {
-    try{
-        var dbQuery = await db.query("SELECT * FROM workouts");
-        response.send({message:'hello', result: dbQuery});
-        response.render("week-view"); //whatever the main html file is called
-    } catch(error) {
-        console.log(error+"catch statement");
-        next(error) 
-        response.send({
-          error,
-          msg: "There was an error with the database."
-        })
-    }   
-});
 
 var PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {
@@ -53,10 +34,28 @@ const config = {
 app.use(auth(config));
 
 // req.isAuthenticated is provided from the auth router
-app.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
+app.get('/', (req, res) => { 
+  if(req.oidc.isAuthenticated()){
+    res.redirect("/index");
+  }
 });
 
 app.get('/profile',requiresAuth(), (req, res)=>{
   res.send(JSON.stringify(req.oidc.user));
+});
+
+app.get('/index', (request, response) => {
+  response.render("index");
+  // try{
+  //     var dbQuery = await db.query("SELECT * FROM restaurant");
+  //     response.send({message:'hello', result: dbQuery});
+  //     response.render("week-view"); //whatever the main html file is called
+  // } catch(error) {
+  //     console.log(error+"catch statement");
+  //     next(error)
+  //     response.send({
+  //       error,
+  //       msg: "There was an error with the database."
+  //     })
+  // }   
 });
