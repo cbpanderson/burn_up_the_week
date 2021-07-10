@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/style.css" rel="stylesheet" type="text/css" />
     <title>Burn Up The Week</title>
 </head>
 <body>
-    <h1>Burn Up The Week</h1>
+    <h1 id="pageTitle">Burn Up The Week</h1>
+
+    <form id="weekSearchForm">
+        <input type="text" id="weekSearch" name="weekSearch"><br>
+        <input type="submit" value="Week Search">
+    </form>
+
+    <div id="exercise-tiles">
+        <h3 id="exerciseTitle">Exercises</h3>
+        <!-- Need to add exercises here dynamically based on how many in db, like we did with drinks -->
+    </div>
+    <div id="mon-thur-row">
+        <div class="mon-thur-box"><input id ="workoutCheckMonday" type="checkbox" name="terms" /></div>
+        <div class="mon-thur-box"><input id ="workoutCheckTuesday" type="checkbox" name="terms" /></div>
+        <div class="mon-thur-box"><input id ="workoutCheckWednesday" type="checkbox" name="terms" /></div>
+        <div class="mon-thur-box"><input id ="workoutCheckThursday" type="checkbox" name="terms" /></div>
+    </div>
+    <div id="fri-sun-row">
+        <div class="fri-sun-box"><input id ="workoutCheckFriday" type="checkbox" name="terms" /></div>
+        <div class="fri-sun-box"><input id ="workoutCheckSaturday" type="checkbox" name="terms" /></div>
+        <div class="fri-sun-box"><input id ="workoutCheckSunday" type="checkbox" name="terms" /></div>
+    </div>
+    <div id="weekTotal">Week Total:</div>
     
 </body>
 </html>
