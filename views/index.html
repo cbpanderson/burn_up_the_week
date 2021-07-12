@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../public/style.css" rel="stylesheet" type="text/css" />
+    <script src="/index.js" defer></script>
     <title>Burn Up The Week</title>
 </head>
 <body>
@@ -15,43 +16,45 @@
         <input type="submit" value="Week Search">
     </form>
 
-    <div id="exercise-tiles">
+    <div class="container" id="exercise-tiles">
         <h3 id="exerciseTitle">Exercises</h3>
+        <p class="draggable" draggable="true">Exercise1</p>
+        <p class="draggable" draggable="true">Exercise2</p>
         <!-- Need to add exercises here dynamically based on how many in db, like we did with drinks -->
     </div>
     <div id="mon-thur-row">
-        <div class="mon-thur-box" id="mondayBox">
+        <div class="container" id="mondayBox">
             <input id="workoutCheckMonday" type="checkbox"/>
             <h3 class="boxLabel">Monday</h3>
         </div>
-        <div class="mon-thur-box" id="TuesdayBox">
+        <div class="container" id="TuesdayBox">
             <input id="workoutCheckTuesday" type="checkbox"/>
             <h3 class="boxLabel">Tuesday</h3>
         </div>
-        <div class="mon-thur-box" id="WednesdayBox">
+        <div class="container" id="WednesdayBox">
             <input id ="workoutCheckWednesday" type="checkbox"/>
             <h3 class="boxLabel">Wednesday</h3>
         </div>
-        <div class="mon-thur-box" id="ThursdayBox">
+        <div class="container" id="ThursdayBox">
             <input id ="workoutCheckThursday" type="checkbox"/>
             <h3 class="boxLabel">Thursday</h3>
         </div>
     </div>
     <div id="fri-sun-row">
-        <div class="fri-sun-box" id="FridayBox">
+        <div class="container" id="FridayBox">
             <input id ="workoutCheckFriday" type="checkbox"/>
             <h3 class="boxLabel">Friday</h3>
         </div>
-        <div class="fri-sun-box" id="SaturdayBox">
+        <div class="container" id="SaturdayBox">
             <input id ="workoutCheckSaturday" type="checkbox"/>
             <h3 class="boxLabel">Saturday</h3>
         </div>
-        <div class="fri-sun-box" id="SundayBox">
+        <div class="container" id="SundayBox">
             <input id ="workoutCheckSunday" type="checkbox"/>
             <h3 class="boxLabel">Sunday</h3>
         </div>
     </div>
-    <div id="weekTotal">Week Total:</div>
+    <div id="fri-sun-row">Week Total</div>
     <!-- whenever check box is clicked or unclicked need to calculate total -->
     
 </body>

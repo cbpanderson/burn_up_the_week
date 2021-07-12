@@ -1,3 +1,13 @@
+
+.draggable{
+    background-color: cadetblue;
+    border: 1px solid black;
+    cursor:move;
+}
+.draggable.dragging{
+    opacity: .5 ;
+}
+
 #weekSearchForm{
     margin-left: 50%; 
     display: none;
@@ -11,12 +21,19 @@
     margin-top: 1%;
     display: flex;
 }
-.mon-thur-box{
+/* .mon-thur-box{
     width:200px;
     height: 250px;
     border-style: solid;
     border-color: black;
-}
+} */
+ .container{
+    width:200px;
+    height: 250px;
+    border-style: solid;
+    border-color: black;
+} 
+
 #fri-sun-row{
     width:600px;
     height: 250px;
@@ -61,3 +78,4 @@
 h3{
     background-color: dodgerblue;
 }
+
