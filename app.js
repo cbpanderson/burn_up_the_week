@@ -43,15 +43,16 @@ app.get('/', (req, res) => {
 app.get('/index', (request, response) => {
   response.render("index");
   // try{
-  //     var dbQuery = await db.query("SELECT names FROM workouts");
-  //     response.send({message:'hello', result: dbQuery});
+  //     var getWorkoutsQuery = await db.query("SELECT name FROM public.workouts");
+  //
+  //     response.send({message:'hello', result: getWorkoutsQuery});
   //     response.render("index"); //whatever the main html file is called
   // } catch(error) {
   //     console.log(error+"catch statement");
   //     next(error)
   //     response.send({
   //       error,
-  //       msg: "There was an error with the database."
+  //       msg: "There was an error with the database trying to retrieve the workout names."
   //     })
   // }   
 });

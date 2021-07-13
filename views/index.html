@@ -11,7 +11,7 @@
 <body>
     <h1 id="pageTitle">Burn Up The Week</h1>
 
-    <form id="weekSearchForm" style.display="none">
+    <form id="weekSearchForm">
         <input type="text" id="weekSearch" name="weekSearch"><br>
         <input type="submit" value="Week Search">
     </form>
@@ -23,39 +23,39 @@
         <!-- Need to add exercises here dynamically based on how many in db, like we did with drinks -->
     </div>
     <div id="mon-thur-row">
-        <div class="container" id="mondayBox">
-            <input id="workoutCheckMonday" type="checkbox"/>
+        <div class="mon-thur-box container" id="mondayBox">
+            <input id="workoutCheckMonday" type="checkbox" onclick="calculateTotal('mondayBox')"/>
             <h3 class="boxLabel">Monday</h3>
         </div>
-        <div class="container" id="TuesdayBox">
-            <input id="workoutCheckTuesday" type="checkbox"/>
+        <div class="mon-thur-box container" id="tuesdayBox">
+            <input id="workoutCheckTuesday" type="checkbox" onclick="calculateTotal('tuesdayBox')"/>
             <h3 class="boxLabel">Tuesday</h3>
         </div>
-        <div class="container" id="WednesdayBox">
-            <input id ="workoutCheckWednesday" type="checkbox"/>
+        <div class="mon-thur-box container" id="wednesdayBox">
+            <input id ="workoutCheckWednesday" type="checkbox" onclick="calculateTotal('wednesdayBox')"/>
             <h3 class="boxLabel">Wednesday</h3>
         </div>
-        <div class="container" id="ThursdayBox">
-            <input id ="workoutCheckThursday" type="checkbox"/>
+        <div class="mon-thur-box container" id="thursdayBox">
+            <input id ="workoutCheckThursday" type="checkbox" onclick="calculateTotal('thursdayBox')"/>
             <h3 class="boxLabel">Thursday</h3>
         </div>
     </div>
     <div id="fri-sun-row">
-        <div class="container" id="FridayBox">
-            <input id ="workoutCheckFriday" type="checkbox"/>
+        <div class="fri-sun-box container" id="fridayBox">
+            <input id ="workoutCheckFriday" type="checkbox" onclick="calculateTotal('fridayBox')"/>
             <h3 class="boxLabel">Friday</h3>
         </div>
-        <div class="container" id="SaturdayBox">
-            <input id ="workoutCheckSaturday" type="checkbox"/>
+        <div class="fri-sun-box container" id="saturdayBox">
+            <input id ="workoutCheckSaturday" type="checkbox" onclick="calculateTotal('saturdayBox')"/>
             <h3 class="boxLabel">Saturday</h3>
         </div>
-        <div class="container" id="SundayBox">
-            <input id ="workoutCheckSunday" type="checkbox"/>
+        <div class="fri-sun-box container" id="sundayBox">
+            <input id ="workoutCheckSunday" type="checkbox" onclick="calculateTotal('sundayBox')"/>
             <h3 class="boxLabel">Sunday</h3>
         </div>
     </div>
     <div id="fri-sun-row">Week Total</div>
     <!-- whenever check box is clicked or unclicked need to calculate total -->
-    
+    <script src="../index.js"></script>
 </body>
 </html>
