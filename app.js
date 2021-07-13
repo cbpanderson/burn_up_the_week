@@ -1,7 +1,9 @@
 var express = require('express');
 
 var pgp = require('pg-promise')();
-const db = pgp("postgres://postgres:data@localhost:5432/test");
+const db = pgp("postgres://postgres:@localhost:5432/burnup_db");
+module.exports = db;
+
 var app = express();
 const es6Renderer = require('express-es6-template-engine');
 app.engine('html', es6Renderer);
@@ -36,7 +38,8 @@ app.use(auth(config));
 // req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => { 
   if(req.oidc.isAuthenticated()){
-    res.redirect("/index");
+    res.redirect("/index.html");
+    res.redirect("/index.js");
   }
 });
 
@@ -59,3 +62,4 @@ app.get('/index', (request, response) => {
 app.get('/profile',requiresAuth(), (req, res)=>{
   res.send(JSON.stringify(req.oidc.user));
 });
+
