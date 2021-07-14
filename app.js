@@ -44,19 +44,17 @@ app.get('/', (req, res) => {
 });
 
 app.get('/index', async (request, response, next) => {
-  response.render("index");
-  // try{
-  //     var getWorkoutsQuery = await db.query("SELECT name FROM workouts");
-  //     response.send({result: getWorkoutsQuery});
-  //     response.render("index"); 
-  // } catch(error) {
-  //     console.log(error+"catch statement");
-  //     next(error)
-  //     response.send({
-  //       error,
-  //       msg: "There was an error with the database trying to retrieve the workout names."
-  //     })
-  // }   
+  try{
+      var getWorkoutsQuery = await db.query("SELECT name FROM workouts");
+      response.render("index", {locals: {result: getWorkoutsQuery}, partials: {}}); 
+  } catch(error) {
+      console.log(error+"catch statement");
+      next(error)
+      response.send({
+        error,
+        msg: "There was an error with the database trying to retrieve the workout names."
+      })
+  }   
 });
 
 app.get('/profile',requiresAuth(), (req, res)=>{
