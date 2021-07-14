@@ -1,7 +1,7 @@
 var express = require('express');
 
 var pgp = require('pg-promise')();
-const db = pgp("postgres://postgres:@localhost:5432/burnup_db");
+const db = pgp("postgres://postgres:data@localhost:5432/burnup_db");
 module.exports = db;
 
 var app = express();
@@ -38,25 +38,23 @@ app.use(auth(config));
 // req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => { 
   if(req.oidc.isAuthenticated()){
-    res.redirect("/index.html");
+    res.redirect("/index");
     res.redirect("/index.js");
   }
 });
 
-app.get('/index', (request, response) => {
-  response.render("index");
-  // try{
-  //     var dbQuery = await db.query("SELECT names FROM workouts");
-  //     response.send({message:'hello', result: dbQuery});
-  //     response.render("index"); //whatever the main html file is called
-  // } catch(error) {
-  //     console.log(error+"catch statement");
-  //     next(error)
-  //     response.send({
-  //       error,
-  //       msg: "There was an error with the database."
-  //     })
-  // }   
+app.get('/index', async (request, response, next) => {
+  try{
+      var getWorkoutsQuery = await db.query("SELECT name FROM workouts");
+      response.render("index", {locals: {result: getWorkoutsQuery}, partials: {}}); 
+  } catch(error) {
+      console.log(error+"catch statement");
+      next(error)
+      response.send({
+        error,
+        msg: "There was an error with the database trying to retrieve the workout names."
+      })
+  }   
 });
 
 app.get('/profile',requiresAuth(), (req, res)=>{
