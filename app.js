@@ -38,7 +38,7 @@ app.use(auth(config));
 // req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => { 
   if(req.oidc.isAuthenticated()){
-    res.redirect("/index.html");
+    res.redirect("/index");
     res.redirect("/index.js");
   }
 });
