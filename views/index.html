@@ -18,9 +18,9 @@
 
     <div class="container" id="exercise-tiles">
         <h3 id="exerciseTitle">Exercises</h3>
-        <p class="draggable" draggable="true">Exercise1</p>
-        <p class="draggable" draggable="true">Exercise2</p>
-        <!-- Need to add exercises here dynamically based on how many in db, like we did with drinks -->
+        ${result.map(r => `
+            <p class="draggable" draggable="true">${r.name}</p>
+        `).join('')}
     </div>
     <div id="mon-thur-row">
         <div class="container" id="mondayBox">

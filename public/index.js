@@ -21,3 +21,17 @@ containers.forEach(container=>{
     })
 })
 
+function calculateTotal(weekBoxId){
+    //checked or unchecked
+    //if checked:
+    //get workouts
+    //calculate total calories
+    //display total
+    //write to db
+
+    //if unchecked:
+    //get workouts 
+    //remove from total
+    //display total
+    //remove from db
+}
