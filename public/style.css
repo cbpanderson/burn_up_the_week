@@ -60,12 +60,14 @@
 }
 #exercise-tiles{
     width:200px;
-    height: 400px;
+    /* height: 400px; */
+    height: max-content;
     border-style: solid;
     border-color: black;
     border-width: 5px;
     margin-top: 2%;
     float: left;
+
 }
 #weekTotal{
     margin-right: 30%;
