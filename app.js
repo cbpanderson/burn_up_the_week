@@ -1,7 +1,8 @@
+const { response } = require('express');
 var express = require('express');
-
 var pgp = require('pg-promise')();
-const db = pgp("postgres://postgres:data@localhost:5432/burnup_db");
+// const db = pgp("postgres://postgres:data@localhost:5432/burnup_db");
+const db = pgp("postgres://postgres:@localhost:5432/burnup_db");
 module.exports = db;
 
 var app = express();
@@ -36,7 +37,7 @@ const config = {
 app.use(auth(config));
 
 // req.isAuthenticated is provided from the auth router
-app.get('/', (req, res) => { 
+app.get('/',requiresAuth(), (req, res) => { 
   if(req.oidc.isAuthenticated()){
     res.redirect("/index");
     res.redirect("/index.js");
