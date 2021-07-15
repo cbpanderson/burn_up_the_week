@@ -14,7 +14,8 @@
 }
 #mon-thur-row{
     width:800px;
-    height: 250px;
+    min-height: 250px;
+    height: max-content;
     border-style: solid;
     border-color: black;
     margin-left: 20%;
@@ -29,14 +30,17 @@
 } */
  .container{
     width:200px;
-    height: 250px;
+    min-height: 250px;
+    height: max-content;
     border-style: solid;
     border-color: black;
 } 
 
 #fri-sun-row{
+    /* padding-left:9%; */
     width:600px;
-    height: 250px;
+    min-height: 250px;
+    height: max-content;
     border-style: solid;
     border-color: black;
     margin-left: 20%;
@@ -45,7 +49,8 @@
 }
 .fri-sun-box{
     width:200px;
-    height: 250px;
+    min-height: 250px;
+    height: max-content;
     border-style: solid;
     border-color: black;
 }

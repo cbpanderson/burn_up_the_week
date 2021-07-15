@@ -21,6 +21,8 @@ containers.forEach(container=>{
     })
 })
 
+
+
 function calculateTotal(weekBoxId){
     //checked or unchecked
     //if checked:
