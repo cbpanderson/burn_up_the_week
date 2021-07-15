@@ -1,8 +1,8 @@
 const { response } = require('express');
 var express = require('express');
 var pgp = require('pg-promise')();
-// const db = pgp("postgres://postgres:data@localhost:5432/burnup_db");
-const db = pgp("postgres://postgres:@localhost:5432/burnup_db");
+const db = pgp("postgres://postgres:data@localhost:5432/burnup_db");
+// const db = pgp("postgres://postgres:@localhost:5432/burnup_db");
 module.exports = db;
 
 var app = express();

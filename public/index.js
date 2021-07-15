@@ -21,9 +21,36 @@ containers.forEach(container=>{
     })
 })
 
+var mondayChecked = false;
+var tuesdayChecked = false;
+var wednesdayChecked = false;
+var thursdayChecked = false;
+var fridayChecked = false;
+var saturdayChecked = false;
+var sundayChecked = false;
 
+function calculateTotal(day){
+    switch(day) {
+        case 'monday':
+            if(mondayChecked === false){
+                mondayChecked = true;
+                //get workouts from db
+                //add
+                //display
+            } else{
+                mondayChecked = false;
+                //get workouts
+                //subtract monday from total
+                //display
+            }
+        case 'tuesday':
+        case 'wednesday':
+        case 'thursday':
+        case 'friday':
+        case 'saturday':
+        case 'sunday':
 
-function calculateTotal(weekBoxId){
+    }
     //checked or unchecked
     //if checked:
     //get workouts
@@ -31,9 +58,4 @@ function calculateTotal(weekBoxId){
     //display total
     //write to db
 
-    //if unchecked:
-    //get workouts 
-    //remove from total
-    //display total
-    //remove from db
 }
