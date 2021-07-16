@@ -1,6 +1,7 @@
 const { response } = require('express');
 var express = require('express');
 var pgp = require('pg-promise')();
+var bodyParser = require('body-parser');
 // const db = pgp("postgres://postgres:data@localhost:5432/burnup_db");
 const db = pgp("postgres://postgres:@localhost:5432/burnup_db");
 module.exports = db;
@@ -12,7 +13,8 @@ app.set('views', 'views');
 app.set('view engine', 'html');
 
 //middleware
-app.use(express.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
 app.use('/public', express.static('public'));
 
 require('dotenv').config();
@@ -46,7 +48,7 @@ app.get('/',requiresAuth(), (req, res) => {
 
 app.get('/index', async (request, response, next) => {
   try{
-      var getWorkoutsQuery = await db.query("SELECT name FROM workouts");
+      var getWorkoutsQuery = await db.query("SELECT * FROM workouts");
       response.render("index", {locals: {result: getWorkoutsQuery}, partials: {}}); 
   } catch(error) {
       console.log(error+"catch statement");
@@ -58,7 +60,32 @@ app.get('/index', async (request, response, next) => {
   }   
 });
 
+app.post('/submitworkout', async(request,response,next)=>{
+  try{
+      console.log(request.body);
+  }
+  catch{
+
+  }
+})
+
 app.get('/profile',requiresAuth(), (req, res)=>{
-  res.send(JSON.stringify(req.oidc.user));
+  try{
+  res.render("index", {locals:{result:JSON.stringify(req.oidc.user)}, partials:{}});
+}catch{
+  console.log(error+"catch statement");
+      next(error)
+      response.send({
+        error,
+        msg: "Error with user profile."
+      })
+
+}
 });
 
+// app.get('/apple',requiresAuth(), (req, res) => { 
+//   if(req.oidc.isAuthenticated()){
+//     res.redirect("/index");
+//     res.redirect("/index.js");
+//   }
+// });
