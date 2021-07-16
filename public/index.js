@@ -22,6 +22,10 @@ containers.forEach(container=>{
 })
 
 
+function submitWorkout(e){
+    e.preventDefault();
+    console.log(e);
+}
 
 function calculateTotal(weekBoxId){
     //checked or unchecked
