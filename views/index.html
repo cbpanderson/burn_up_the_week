@@ -12,6 +12,7 @@
     <nav>
         <ul>
              <li><a href="/logout/">Logout</a></li>
+            
         </ul>
     </nav>
     <h1 id="pageTitle">Burn Up The Week</h1>
@@ -24,14 +25,22 @@
     <div class="container" id="exercise-tiles">
         <h3 id="exerciseTitle">Exercises</h3>
         ${result.map(r => `
-            <p class="draggable" draggable="true">${r.name}</p>
+            <div class="draggable"  draggable="true"><p > ${r.workout_id} ${r.name} ${r.calories_amount} Calories</p>
+            <input  type="hidden" name="${r.name}" value="${r.calories_amount}"></input>
+        </div>
         `).join('')}
     </div>
     <div id="mon-thur-row">
-        <div class="container" id="mondayBox">
-            <input id="workoutCheckMonday" type="checkbox"/>
-            <h3 class="boxLabel">Monday</h3>
-        </div>
+        <!-- <form method="POST" action="/submitworkout"> -->
+        <form class="container" id="mondayBox" method="POST" action="/submitworkout">
+            <!-- <input id="workoutCheckMonday" type="checkbox"/>
+            <h3 class="boxLabel">Monday</h3> -->
+            
+                <label class="boxLabel" for="fname">Monday</label><br>
+                <input type="submit" onclick="submitWorkout">
+              
+        
+    </form> 
         <div class="container" id="TuesdayBox">
             <input id="workoutCheckTuesday" type="checkbox"/>
             <h3 class="boxLabel">Tuesday</h3>
