@@ -21,23 +21,53 @@ containers.forEach(container=>{
     })
 })
 
+var mondayChecked = false;
+var tuesdayChecked = false;
+var wednesdayChecked = false;
+var thursdayChecked = false;
+var fridayChecked = false;
+var saturdayChecked = false;
+var sundayChecked = false;
+
+// function calculateTotal(day){
+//     switch(day) {
+//         case 'monday':
+//             if(mondayChecked === false){
+//                 mondayChecked = true;
+//                 displayTotal(day);
+//             } else{
+//                 mondayChecked = false;
+//                 //get workouts
+//                 //subtract monday from total
+//                 //display
+//             }
+//         case 'tuesday':
+//         case 'wednesday':
+//         case 'thursday':
+//         case 'friday':
+//         case 'saturday':
+//         case 'sunday':
 
 function submitWorkout(e){
     e.preventDefault();
     console.log(e);
 }
 
-function calculateTotal(weekBoxId){
-    //checked or unchecked
-    //if checked:
-    //get workouts
-    //calculate total calories
-    //display total
-    //write to db
+//     }
+//     //checked or unchecked
+//     //if checked:
+//     //get workouts
+//     //calculate total calories
+//     //display total
+//     //write to db
 
-    //if unchecked:
-    //get workouts 
-    //remove from total
-    //display total
-    //remove from db
-}
+// }
+
+// displayTotal(day){
+//     //get workouts from db
+//     //for each workout if 'day' get workout id add to array of workout ids
+//      //for each item in workout ids array get calries_amount and add up
+//     //get total from front end
+//     //display
+
+// }
