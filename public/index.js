@@ -21,15 +21,16 @@ containers.forEach(container=>{
     })
 })
 
-var mondayChecked = false;
-var tuesdayChecked = false;
-var wednesdayChecked = false;
-var thursdayChecked = false;
-var fridayChecked = false;
-var saturdayChecked = false;
-var sundayChecked = false;
+// var mondayChecked = false;
+// var tuesdayChecked = false;
+// var wednesdayChecked = false;
+// var thursdayChecked = false;
+// var fridayChecked = false;
+// var saturdayChecked = false;
+// var sundayChecked = false;
 
-// function calculateTotal(day){
+// function calculateTotal(amt){
+
 //     switch(day) {
 //         case 'monday':
 //             if(mondayChecked === false){
@@ -50,6 +51,7 @@ var sundayChecked = false;
 
 function submitWorkout(e){
     e.preventDefault();
+    
     console.log(e);
 }
 

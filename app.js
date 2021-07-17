@@ -70,16 +70,32 @@ app.post('/submitworkout', async(request,response,next)=>{
   }
 })
 
-app.get('/profile',requiresAuth(), (req, res)=>{
+app.get('/profile', requiresAuth(), (req, res, next)=>{
   try{
   res.render("index", {locals:{result:JSON.stringify(req.oidc.user)}, partials:{}});
-}catch{
-  console.log(error+"catch statement");
+  }catch{
+    console.log(error+"catch statement");
       next(error)
       response.send({
         error,
         msg: "Error with user profile."
       })
 
-}
+  }
+});
+
+app.get('/complete', requiresAuth(), async (req, res, next)=>{
+  try{
+    res.render("complete");
+    // var getScheduledWorkoutsQuery = await db.query("SELECT * FROM scheduled_workouts"); //search for all workouts for one day to check off
+    // res.render("complete", {locals: {result: getScheduledWorkoutsQuery}, partials: {}});
+  }catch{
+    console.log(error+"catch statement");
+      next(error)
+      response.send({
+        error,
+        msg: "Error with complete page"
+      })
+
+  }
 });
