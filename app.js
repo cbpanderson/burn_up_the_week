@@ -43,7 +43,7 @@ app.use(auth(config));
 app.get('/',requiresAuth(), (req, res) => { 
   if(req.oidc.isAuthenticated()){
     res.redirect("/index");
-    res.redirect("/index.js");
+ 
   }
 });
 
