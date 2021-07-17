@@ -2,9 +2,9 @@ const { response } = require('express');
 var express = require('express');
 var pgp = require('pg-promise')();
 var dbsettings = (process.env.DATABASE_URL || "postgres://postgres:data@localhost:5432/burnup_db");
-var dbsettings = (process.env.DATABASE_URL || "postgres://postgres:@localhost:5432/burnup_db");
+// var dbsettings = (process.env.DATABASE_URL || "postgres://postgres:@localhost:5432/burnup_db");
 const db = pgp(dbsettings);
-// var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 module.exports = db;
 
 var app = express();
