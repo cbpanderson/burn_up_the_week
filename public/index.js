@@ -48,6 +48,11 @@ var sundayChecked = false;
 //         case 'saturday':
 //         case 'sunday':
 
+function submitWorkout(e){
+    e.preventDefault();
+    console.log(e);
+}
+
 //     }
 //     //checked or unchecked
 //     //if checked:
