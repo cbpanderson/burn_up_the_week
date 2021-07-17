@@ -1,9 +1,10 @@
 const { response } = require('express');
 var express = require('express');
 var pgp = require('pg-promise')();
+var dbsettings = (process.env.DATABASE_URL || "postgres://postgres:data@localhost:5432/burnup_db");
+// var dbsettings = (process.env.DATABASE_URL || "postgres://postgres:@localhost:5432/burnup_db");
+const db = pgp(dbsettings);
 var bodyParser = require('body-parser');
-// const db = pgp("postgres://postgres:data@localhost:5432/burnup_db");
-const db = pgp("postgres://postgres:@localhost:5432/burnup_db");
 module.exports = db;
 
 var app = express();
@@ -82,10 +83,3 @@ app.get('/profile',requiresAuth(), (req, res)=>{
 
 }
 });
-
-// app.get('/apple',requiresAuth(), (req, res) => { 
-//   if(req.oidc.isAuthenticated()){
-//     res.redirect("/index");
-//     res.redirect("/index.js");
-//   }
-// });
