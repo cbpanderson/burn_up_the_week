@@ -26,49 +26,61 @@
     <div class="container" id="exercise-tiles">
         <h3 id="exerciseTitle">Exercises</h3>
         ${result.map(r => `
-            <div class="draggable"  draggable="true"><p >${r.name} ${r.calories_amount} Calories</p>
+            <div class="draggable"  draggable="true"><p>${r.name} ${r.calories_amount} Calories</p>
             <input  type="hidden" name="workout_id" value="${r.workout_id}"></input>
-            <input  type="hidden" name="user_id" value="${r.workout_id}"></input>
             <input  type="hidden" name="calories_amount" value="${r.calories_amount}" ></input>
        </div>
         `).join('')}
     </div>
+    
     <div id="mon-thur-row">
        <form class="container" id="mondayBox" method="POST" action="/submitworkout">
-        <!-- <input id ="workoutCheckWednesday" type="checkbox" onclick="calculateTotal()"/> -->
-        <h3 class="boxLabel">Monday</h3><br>
+       <h3 class="boxLabel">Monday</h3><br>
+        <input  type="hidden" name="weekday" value="Monday" ></input>
         <input type="date" id="start" name="date_schedule" value=" " min="2021-01-01" max="2021-12-31">
         <input type="submit" onclick="submitWorkout()">
       </form> 
-        <div class="container" id="TuesdayBox">
-            <!-- <input id="workoutCheckTuesday" type="checkbox"/> -->
-            <h3 class="boxLabel">Tuesday</h3>
-        </div>
-        <div class="container" id="WednesdayBox">
-            <!-- <input id ="workoutCheckWednesday" type="checkbox"/> -->
-            <h3 class="boxLabel">Wednesday</h3>
-        </div>
-        <div class="container" id="ThursdayBox">
-            <!-- <input id ="workoutCheckThursday" type="checkbox"/> -->
-            <h3 class="boxLabel">Thursday</h3>
-        </div>
+    
+      <form class="container" id="tuesdayBox" method="POST" action="/submitworkout">
+        <h3 class="boxLabel">Tuesday</h3><br>
+         <input  type="hidden" name="weekday" value="Tuesday" ></input>
+         <input type="date" id="start" name="date_schedule" value=" " min="2021-01-01" max="2021-12-31">
+         <input type="submit" onclick="submitWorkout()">
+       </form> 
+       <form class="container" id="wednesdayBox" method="POST" action="/submitworkout">
+        <h3 class="boxLabel">Wednesday</h3><br>
+         <input  type="hidden" name="weekday" value="Wednesday" ></input>
+         <input type="date" id="start" name="date_schedule" value=" " min="2021-01-01" max="2021-12-31">
+         <input type="submit" onclick="submitWorkout()">
+       </form> 
+       <form class="container" id="thursdayBox" method="POST" action="/submitworkout">
+        <h3 class="boxLabel">Thursday</h3><br>
+         <input  type="hidden" name="weekday" value="Thursday" ></input>
+         <input type="date" id="start" name="date_schedule" value=" " min="2021-01-01" max="2021-12-31">
+         <input type="submit" onclick="submitWorkout()">
+       </form> 
     </div>
     <div id="fri-sun-row">
-        <div class="container" id="FridayBox">
-            <!-- <input id ="workoutCheckFriday" type="checkbox"/> -->
-            <h3 class="boxLabel">Friday</h3>
-        </div>
-        <div class="container" id="SaturdayBox">
-            <!-- <input id ="workoutCheckSaturday" type="checkbox"/> -->
-            <h3 class="boxLabel">Saturday</h3>
-        </div>
-        <div class="container" id="SundayBox">
-            <!-- <input id ="workoutCheckSunday" type="checkbox"/> -->
-            <h3 class="boxLabel">Sunday</h3>
-        </div>
+        <form class="container" id="fridayBox" method="POST" action="/submitworkout">
+            <h3 class="boxLabel">Friday</h3><br>
+             <input  type="hidden" name="weekday" value="Friday" ></input>
+             <input type="date" id="start" name="date_schedule" value=" " min="2021-01-01" max="2021-12-31">
+             <input type="submit" onclick="submitWorkout()">
+           </form> 
+           <form class="container" id="saturdayBox" method="POST" action="/submitworkout">
+            <h3 class="boxLabel">Saturday</h3><br>
+             <input  type="hidden" name="weekday" value="Saturday" ></input>
+             <input type="date" id="start" name="date_schedule" value=" " min="2021-01-01" max="2021-12-31">
+             <input type="submit" onclick="submitWorkout()">
+           </form> 
+           <form class="container" id="sundayBox" method="POST" action="/submitworkout">
+            <h3 class="boxLabel">Sunday</h3><br>
+             <input  type="hidden" name="weekday" value="Sunday" ></input>
+             <input type="date" id="start" name="date_schedule" value=" " min="2021-01-01" max="2021-12-31">
+             <input type="submit" onclick="submitWorkout()">
+           </form> 
     </div>
-    <!-- <div id="fri-sun-row">Week Total</div> -->
-    <!-- whenever check box is clicked or unclicked need to calculate total -->
+   
     
 </body>
 </html>
