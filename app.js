@@ -43,13 +43,6 @@ app.use(auth(config));
 app.get('/',requiresAuth(), (req, res) => { 
   if(req.oidc.isAuthenticated()){
     res.redirect("/index");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    // res.redirect("/index.js");
->>>>>>> 726bd2e84f4d6f1d13b909cd65bafadaa1c8b061
->>>>>>> main
   }
 });
 
@@ -125,7 +118,6 @@ app.get('/complete', requiresAuth(), async (req, res, next)=>{
   }
 });
 
-<<<<<<< HEAD
 app.post('/completeExercise', async(request,response,next)=>{
   try{
       console.log(request.body);
@@ -135,5 +127,3 @@ app.post('/completeExercise', async(request,response,next)=>{
   }
 })
 
-=======
->>>>>>> main
