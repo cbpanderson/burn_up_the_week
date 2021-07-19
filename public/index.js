@@ -21,13 +21,19 @@ containers.forEach(container=>{
     })
 })
 
-var mondayChecked = false;
-var tuesdayChecked = false;
-var wednesdayChecked = false;
-var thursdayChecked = false;
-var fridayChecked = false;
-var saturdayChecked = false;
-var sundayChecked = false;
+function submitWorkout(e){
+    e.preventDefault();
+    console.log(e);
+    return false;
+}
+
+// var mondayChecked = false;
+// var tuesdayChecked = false;
+// var wednesdayChecked = false;
+// var thursdayChecked = false;
+// var fridayChecked = false;
+// var saturdayChecked = false;
+// var sundayChecked = false;
 
 // function calculateTotal(day){
 //     switch(day) {
@@ -48,10 +54,7 @@ var sundayChecked = false;
 //         case 'saturday':
 //         case 'sunday':
 
-function submitWorkout(e){
-    e.preventDefault();
-    console.log(e);
-}
+
 
 //     }
 //     //checked or unchecked

@@ -43,7 +43,7 @@ app.use(auth(config));
 app.get('/',requiresAuth(), (req, res) => { 
   if(req.oidc.isAuthenticated()){
     res.redirect("/index");
-    res.redirect("/index.js");
+    // res.redirect("/index.js");
   }
 });
 
@@ -62,24 +62,40 @@ app.get('/index', async (request, response, next) => {
 });
 
 app.post('/submitworkout', async(request,response,next)=>{
-  try{
-      console.log(request.body);
-  }
-  catch{
+      var submittedForm = request.body;
+      var userInfo = request.oidc.user;
+      var userID = await db.query(`SELECT user_id FROM users WHERE email = '${userInfo.email}'`);
+      var d = submittedForm.date_schedule.toString();
+     try{
+      console.log(userID[0]);
+      if(userID[0]===undefined)
+      {
+        var addUserQuery= await db.query(`INSERT INTO users(name,last_name,email)VALUES('${userInfo.given_name}','${userInfo.family_name}','${userInfo.email}')`);
+        var userID = await db.query(`SELECT user_id FROM users WHERE email = '${userInfo.email}'`);
+      }
+      
+      // console.log(submittedForm.workout_id.length); 
+      
+      for(var i = 0;i<submittedForm.workout_id.length;i++)
+      {    
+        console.log(submittedForm.workout_id[i])
+      await db.query(`INSERT INTO scheduled_workouts(weekday,date_schedule,completed,workout_id,user_id)VALUES('Wednsday','${d}',false,${submittedForm.workout_id[i]},${userID[0].user_id})`);
+      
+       }
 
-  }
-})
-
-app.get('/profile',requiresAuth(), (req, res)=>{
-  try{
-  res.render("index", {locals:{result:JSON.stringify(req.oidc.user)}, partials:{}});
-}catch{
-  console.log(error+"catch statement");
+    } 
+    catch(error){
       next(error)
       response.send({
         error,
-        msg: "Error with user profile."
+        msg: "There was an error with the database trying to add workouts."
       })
 
-}
+    }
+      // await db.query(`INSERT INTO scheduled_workouts(weekday,date_schedule,completed,workout_id,user_id)VALUES('Monday',${1},True,2,1)`);
 });
+
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
+
