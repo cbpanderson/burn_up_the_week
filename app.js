@@ -51,6 +51,7 @@ app.get('/index', async (request, response, next) => {
   try{
       var getWorkoutsQuery = await db.query("SELECT * FROM workouts");
       response.render("index", {locals: {result: getWorkoutsQuery}, partials: {}}); 
+      
   } catch(error) {
       console.log(error+"catch statement");
       next(error)
@@ -78,9 +79,12 @@ app.post('/submitworkout', async(request,response,next)=>{
       
       for(var i = 0;i<submittedForm.workout_id.length;i++)
       {    
-        console.log(submittedForm.workout_id[i])
-      await db.query(`INSERT INTO scheduled_workouts(weekday,date_schedule,completed,workout_id,user_id)VALUES('Wednsday','${d}',false,${submittedForm.workout_id[i]},${userID[0].user_id})`);
-      
+        if(Array.isArray(submittedForm.workout_id)){
+      await db.query(`INSERT INTO scheduled_workouts(weekday,date_schedule,completed,workout_id,user_id)VALUES('${submittedForm.weekday}','${d}',false,${submittedForm.workout_id[i]},${userID[0].user_id})`);
+    }
+    else{
+      await db.query(`INSERT INTO scheduled_workouts(weekday,date_schedule,completed,workout_id,user_id)VALUES('${submittedForm.weekday}','${d}',false,${submittedForm.workout_id},${userID[0].user_id})`);
+    }
        }
 
     } 
@@ -97,5 +101,22 @@ app.post('/submitworkout', async(request,response,next)=>{
 
 app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
+  });
+
+
+app.get('/complete', requiresAuth(), async (req, res, next)=>{
+  try{
+    res.render("complete");
+    // var getScheduledWorkoutsQuery = await db.query("SELECT * FROM scheduled_workouts"); //search for all workouts for one day to check off
+    // res.render("complete", {locals: {result: getScheduledWorkoutsQuery}, partials: {}});
+  }catch{
+    console.log(error+"catch statement");
+      next(error)
+      response.send({
+        error,
+        msg: "Error with complete page"
+      })
+
+  }
 });
 

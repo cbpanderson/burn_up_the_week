@@ -21,12 +21,6 @@ containers.forEach(container=>{
     })
 })
 
-function submitWorkout(e){
-    e.preventDefault();
-    console.log(e);
-    return false;
-}
-
 // var mondayChecked = false;
 // var tuesdayChecked = false;
 // var wednesdayChecked = false;
@@ -35,7 +29,8 @@ function submitWorkout(e){
 // var saturdayChecked = false;
 // var sundayChecked = false;
 
-// function calculateTotal(day){
+// function calculateTotal(amt){
+
 //     switch(day) {
 //         case 'monday':
 //             if(mondayChecked === false){
@@ -54,7 +49,11 @@ function submitWorkout(e){
 //         case 'saturday':
 //         case 'sunday':
 
-
+function submitWorkout(e){
+    e.preventDefault();
+    
+    console.log(e);
+}
 
 //     }
 //     //checked or unchecked
