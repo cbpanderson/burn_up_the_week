@@ -26,7 +26,9 @@
     <div class="container" id="exercise-tiles">
         <h3 id="exerciseTitle">Exercises</h3>
         ${result.map(r => `
-            <div class="draggable"  draggable="true"><p>${r.name} ${r.calories_amount} Calories</p>
+            <div class="draggable"  draggable="true"><p
+                
+                >${r.name} ${r.calories_amount} Calories</p>
             <input  type="hidden" name="workout_id" value="${r.workout_id}"></input>
             <input  type="hidden" name="calories_amount" value="${r.calories_amount}" ></input>
        </div>

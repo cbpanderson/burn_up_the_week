@@ -122,10 +122,12 @@ app.post('/searchDaysWorkouts', requiresAuth(), async(req, res, next)=>{
     var d = submittedForm.date_schedule.toString();
     var userInfo = req.oidc.user;
     var userID = await db.query(`SELECT user_id FROM users WHERE email = '${userInfo.email}'`);
-    var getScheduledWorkoutsQuery = await db.query(`SELECT workouts.name, workouts.description FROM workouts INNER JOIN scheduled_workouts ON workouts.workout_id =
-     scheduled_workouts.workout_id WHERE scheduled_workouts.date_schedule='${d}'AND scheduled_workouts.user_id=${userID}`); //search for all workouts for one day to check off
+    console.log(userID);
     
-     console.log(getScheduledWorkoutsQuery);
+    var getDayWorkouts = await db.query(`SELECT workouts.name, workouts.description FROM workouts INNER JOIN scheduled_workouts ON 
+    workouts.workout_id = scheduled_workouts.workout_id WHERE scheduled_workouts.date_schedule='${d}'AND scheduled_workouts.user_id=${userID[0].user_id}`); //search for all workouts for one day to check off
+    
+     console.log(getDayWorkouts);
     res.render("complete", {locals: {result: getScheduledWorkoutsQuery}, partials: {}});
       // console.log(request.body);
   }
