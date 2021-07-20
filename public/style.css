@@ -102,15 +102,42 @@ h3{
 #topLinks{
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 2%;
+    margin-right: 8%;
 }
 
 
-#topLinks a{
-    margin-left:3%;
+#topLinks li{
     text-decoration: none;
-    padding-right: 10px;
     list-style-type: none;
+    margin-left: 30px; 
+    color:dodgerblue;
+}
 
+#topLinks a{
+    text-decoration: none;
+}
+
+#completeExerciseForm{
+    width:500px;
+    min-height: 250px;
+    height: max-content;
+    border-style: solid;
+    border-color: black;
+}
+
+#searchDaysExerciseForm{
+    width:250px;
+    min-height: 250px;
+    height: max-content;
+    border-style: solid;
+    border-color: black;
+    margin-left: 170px;
+}
+
+#checkCompleteButton{
+    margin-left: 20%;
+    margin-top: 1%;
 }
 

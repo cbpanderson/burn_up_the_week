@@ -14,16 +14,22 @@
              <li><a href="/profile">Hello </a></li>
              <li><a href="/index">Schedule Exercises</a></li>
              <li><a href="/logout/">Logout</a></li>
+            
         </ul>
     </nav>
     <h1 id="pageTitle">Burn Up The Week</h1>
 
-    <form class="container" id="searchDaysExerciseForm" method="POST" action="/checkComplete">
+    <form id="completeExerciseForm" method="POST" action="/checkComplete">
         <h3 class="daysExercisesTitle">Exercises</h3><br>
-        <input type="date" id="start" name="date_schedule" value=" " min="2021-01-01" max="2021-12-31">
-
-        <button id="searchDaysWorkoutButton" name="Completed" type="submit" onclick="submitWorkout()">Search</button> 
+        ${result.map(r => `
+            <p><b>${r.name}</b></p>
+            <p>${r.description}</p>
+            <hr>
+        `).join('')}
     </form> 
+    <form id="checkCompleteForm" method="POST" action="/completeExercise">           
+        <button id="checkCompleteButton" name="Completed" type="submit" onclick="submitWorkout()">Mark Completed</button>
+    </form>
 
 </body>
 </html>
