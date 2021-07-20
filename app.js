@@ -116,25 +116,25 @@ app.get('/complete', requiresAuth(), (req, res, next)=>{
   }
 });
 
-app.post('/searchDaysWorkouts', requiresAuth(), async(req, res, next)=>{
+app.post('/checkComplete', requiresAuth(), async(req, res, next)=>{
   try{
     var submittedForm = req.body;
     var d = submittedForm.date_schedule.toString();
     var userInfo = req.oidc.user;
     var userID = await db.query(`SELECT user_id FROM users WHERE email = '${userInfo.email}'`);
     var getScheduledWorkoutsQuery = await db.query(`SELECT workouts.name, workouts.description FROM workouts INNER JOIN scheduled_workouts ON workouts.workout_id =
-     scheduled_workouts.workout_id WHERE scheduled_workouts.date_schedule='${d}'AND scheduled_workouts.user_id=${userID}`); //search for all workouts for one day to check off
+     scheduled_workouts.workout_id WHERE scheduled_workouts.date_schedule='${d}'AND scheduled_workouts.user_id=${userID[0].user_id}`); //search for all workouts for one day to check off
     
-     console.log(getScheduledWorkoutsQuery);
-    res.render("complete", {locals: {result: getScheduledWorkoutsQuery}, partials: {}});
-      // console.log(request.body);
+    console.log(getScheduledWorkoutsQuery);
+    res.render("checkComplete", {locals: {result: getScheduledWorkoutsQuery}, partials: {}});
+
   }
   catch(error) {
     console.log(error+"catch statement");
     next(error)
     res.send({
       error,
-      msg: "Error displaying complete page."
+      msg: "Error displaying complete page search results."
     })
   }
 })

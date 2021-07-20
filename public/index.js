@@ -23,12 +23,4 @@ containers.forEach(container=>{
 
 function submitWorkout(e){
     e.preventDefault();
-    
-    console.log(e);
 }
-
-//  ${resulters.map(r => `
-// <div>
-//     <p>${r.name} ${r.date_schedule}</p>
-// </div>
-// `).join('')} 
