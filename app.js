@@ -103,27 +103,39 @@ app.get('/profile', requiresAuth(), (req, res) => {
   });
 
 
-app.get('/complete', requiresAuth(), async (req, res, next)=>{
+app.get('/complete', requiresAuth(), (req, res, next)=>{
   try{
-    var getScheduledWorkoutsQuery = await db.query("SELECT * FROM scheduled_workouts"); //search for all workouts for one day to check off
-    res.render("complete", {locals: {result: getScheduledWorkoutsQuery}, partials: {}});
-  }catch{
+    res.render("complete");
+  }catch(error) {
     console.log(error+"catch statement");
       next(error)
       response.send({
         error,
-        msg: "Error displaying workouts from search on complete page."
+        msg: "Error displaying complete page."
       })
-
   }
 });
 
-app.post('/completeExercise', async(request,response,next)=>{
+app.post('/searchDaysWorkouts', requiresAuth(), async(req, res, next)=>{
   try{
-      console.log(request.body);
+    var submittedForm = req.body;
+    var d = submittedForm.date_schedule.toString();
+    var userInfo = req.oidc.user;
+    var userID = await db.query(`SELECT user_id FROM users WHERE email = '${userInfo.email}'`);
+    var getScheduledWorkoutsQuery = await db.query(`SELECT workouts.name, workouts.description FROM workouts INNER JOIN scheduled_workouts ON workouts.workout_id =
+     scheduled_workouts.workout_id WHERE scheduled_workouts.date_schedule='${d}'AND scheduled_workouts.user_id=${userID}`); //search for all workouts for one day to check off
+    
+     console.log(getScheduledWorkoutsQuery);
+    res.render("complete", {locals: {result: getScheduledWorkoutsQuery}, partials: {}});
+      // console.log(request.body);
   }
-  catch{
-
+  catch(error) {
+    console.log(error+"catch statement");
+    next(error)
+    res.send({
+      error,
+      msg: "Error displaying complete page."
+    })
   }
 })
 
